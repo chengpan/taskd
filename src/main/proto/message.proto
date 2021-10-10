@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package com.github.chengpan.proto;
+option java_multiple_files = true;
+option java_outer_classname = "Message";
+option java_package = "com.github.chengpan.proto";
+
+import "google/protobuf/timestamp.proto";
+
+message Task {
+	string id = 1; // used for deduplication with consumer_id
+	map<string, string> meta = 2; // readable info
+	bytes blob = 3; // binary body
+	string consumer_id = 4; // consumer signature which should be interested in this task when it is due. eg: com.git.pcheng.consumers.email#sendToSubscriber
+	string callback_url = 5; // for http callback
+	string sender_id = 6; // sender signature
+	google.protobuf.Timestamp due_at = 7; // when should this task be done,aka，callback invoked
+}
+
+message TaskRequest {
+  Task task = 1;
+  enum Action {
+    PUT = 0; // will create or update
+    DELETE = 1;
+  }
+  Action action = 2;
+}
+
+message TaskResponse {
+  string err_msg = 1;
+}

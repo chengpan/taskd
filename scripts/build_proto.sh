@@ -1,0 +1,1 @@
+protoc -I/usr/local/Cellar/protobuf/3.15.6/include/ -I=. --java_out=src/main/java src/main/proto/*

@@ -8,7 +8,7 @@
 		<version>2.5.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.github</groupId>
+	<groupId>com.github.chengpan</groupId>
 	<artifactId>taskd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>taskd</name>
@@ -41,6 +41,19 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>com.google.protobuf</groupId>
+			<artifactId>protobuf-java</artifactId>
+			<version>3.18.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.protobuf</groupId>
+			<artifactId>protobuf-java-util</artifactId>
+			<version>3.18.0</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
